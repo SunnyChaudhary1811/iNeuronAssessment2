@@ -1,0 +1,14 @@
+Q1: What will be the result of the query below?
+
+SELECT * FROM runners WHERE id NOT IN (SELECT winner_id FROM races)
+
+Explain your answer and also provide an alternative version of this query that will avoid the issue that it exposes.
+
+Answer:
+John Doe
+
+Query:
+1)SELECT r.* 
+FROM runners r 
+LEFT JOIN races ra ON r.id = ra.winner_id 
+WHERE ra.winner_id IS NULL;

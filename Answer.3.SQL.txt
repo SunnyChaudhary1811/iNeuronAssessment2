@@ -1,0 +1,10 @@
+Question:3 Write a query to to get the list of users who took the a training lesson more than once in the same day, 
+grouped by user and training lesson, each ordered from the most recent lesson date to oldest date.
+
+Answer:
+3) SELECT u.userid, u.username, t.training_date, COUNT(t.training_id) AS num_trainings
+FROM users u
+JOIN user_training t ON u.userid = t.userid
+GROUP BY u.userid, u.username, t.training_date
+HAVING COUNT(t.training_id) > 1
+ORDER BY t.training_date ASC;

@@ -1,0 +1,6 @@
+Question: 2
+Answer:
+2)SELECT t1.*
+FROM table1 t1
+LEFT JOIN table2 t2 ON t1.id = t2.id
+WHERE t2.id IS NULL;
