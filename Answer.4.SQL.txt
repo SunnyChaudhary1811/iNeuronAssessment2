@@ -1,0 +1,11 @@
+Question: 4
+Answer:
+
+SELECT 
+  e.Manager_Id,
+  m.Emp_name AS Manager,
+  AVG(em.Salary) AS Average_Salary_Under_Manager
+FROM Employee e
+LEFT JOIN Employee m ON e.Manager_Id = m.Emp_id
+INNER JOIN Employee em ON em.Manager_Id = e.Manager_Id
+GROUP BY e.Manager_Id, m.Emp_name;
